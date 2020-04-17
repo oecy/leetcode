@@ -39,7 +39,36 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
+        //使用带头节点的单链表
+        ListNode answer = new ListNode(0);
+        ListNode ln = answer;//记录下头节点，防止遍历操作时丢失
+        int cf = 0;//进位标志
+        //处理链表前n个等长节点
+        while(l1 != null && l2 != null){
+            ln.next = new ListNode((l1.val + l2.val + cf) % 10);
+            cf = (l1.val + l2.val + cf) / 10;
+            l1 = l1.next;
+            l2 = l2.next;
+            ln = ln.next;
+        }
+        //当两链表长度不一样时处理
+        while(l1 != null){
+            ln.next = new ListNode( (l1.val + cf) % 10);
+            cf = (l1.val + cf) / 10;
+            l1 = l1.next;
+            ln = ln.next;
+        }
+        while(l2 != null){
+            ln.next = new ListNode( (l2.val + cf) % 10);
+            cf = (l2.val + cf) / 10;
+            l2 = l2.next;
+            ln = ln.next;
+        }
+        //如果最后一位处理结束，但结果仍然有进位
+        if(cf > 0 ){
+            ln.next = new ListNode(cf);
+        }
+        return answer.next;
     }
 }
 // @lc code=end
