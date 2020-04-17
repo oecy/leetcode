@@ -114,6 +114,7 @@ class Solution {
             public void change(char c){
                 state = map.get(state)[get_col(c)];
                 if(state.equals("number")){
+                    //溢出判断
                     if( ans != 0 && Integer.MAX_VALUE / ans < 10  ){
                         flag = true;
                         state = END;
@@ -124,6 +125,7 @@ class Solution {
                         state = END;
                     }
                     if(sign == 1){
+                        //溢出判断  防止上此判断的特殊情况
                         if(ans < 0){
                             flag = true;
                             state = END;
