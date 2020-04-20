@@ -31,16 +31,22 @@
 // @lc code=start
 class Solution {
     public int maxSubArray(int[] nums) {
-        int res = nums[0];
-        int sum = 0;
-        for (int num : nums) {//遍历
-            if (sum > 0)      //如果sum>0则加
-                sum += num;
-            else             //如果sum小于0 则说明不可能最小
-                sum = num;
-            res = Math.max(res, sum);
+        // int res = nums[0];
+        // int sum = 0;
+        // for (int num : nums) {//遍历
+        //     if (sum > 0)      //如果sum>0则加
+        //         sum += num;
+        //     else             //如果sum小于0 则说明不可能最小
+        //         sum = num;
+        //     res = Math.max(res, sum);
+        // }
+        // return res;
+        int n = nums.length, maxSum = nums[0];
+        for(int i = 1; i < n; ++i) {
+          if (nums[i - 1] > 0) nums[i] += nums[i - 1];
+          maxSum = Math.max(nums[i], maxSum);
         }
-        return res;
+        return maxSum;
     }
 
 }
