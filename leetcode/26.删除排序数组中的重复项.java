@@ -66,7 +66,7 @@ class Solution {
             return 0;
         int i = 0;//慢指针
         for(int j  = 1 ; j < nums.length ; j++){//快指针
-            if(nums[i] != nums[j]){//如果两者不相等，则将快指针指向慢指针。相等则快指针继续+1
+            if(nums[i] != nums[j]){//如果两者不相等，则将慢指针加1，同时将快指针的元素移动到新的位置  如果两者相等那么慢指针不会移动直到找到新的不等的元素
                 i++;
                 nums[i] = nums[j];
             }
