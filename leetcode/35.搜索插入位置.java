@@ -48,10 +48,12 @@ class Solution {
     //二分法！！
     public int searchInsert(int[] nums, int target) {
         int length = nums.length;
+        //特殊情况优先判断一下 即要插入的数超出这个有序数组的范围
         if(target < nums[0])
             return 0;
         if(target > nums[length - 1])
             return length;
+        //二分法
         int left = 0;
         int right = length - 1;
         while( left < right){
