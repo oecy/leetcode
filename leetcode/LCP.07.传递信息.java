@@ -27,9 +27,7 @@ class Solution {
             edges.get(src).add(dst);
         }
         dfs(0,0);
-        
         return ans;
-
         // dp dp[i][j] 表示经过i轮后到达j节点的方案数
         // int[][] dp = new int[k + 1][n];
         // dp[0][0] = 1;
