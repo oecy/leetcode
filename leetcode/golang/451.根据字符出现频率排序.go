@@ -6,11 +6,12 @@
 
 // @lc code=start
 func frequencySort(s string) string {
+	//新建 map 存储字符以及其出现的次数
 	cnt := map[byte]int{}
     for i := range s {
         cnt[s[i]]++
     }
-
+	//新建pair 用于创建k，v数组
     type pair struct {
         ch  byte
         cnt int
